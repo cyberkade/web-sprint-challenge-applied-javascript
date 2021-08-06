@@ -1,4 +1,3 @@
-const Card = (article) => {
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -17,9 +16,38 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+import axios from "axios";
+
+const Card = (article) => {
+  const card = document.createElement('div');
+  const headline = document.createElement('div');
+  const author = document.createElement('div');
+  const imgCont = document.createElement('div');
+  const photo = document.createElement('img');
+  const name = document.createElement('span');
+
+  card.className = 'card';
+  headline.className = 'headline';
+  author.className = 'author';
+  imgCont.className = 'img-container';
+
+  photo.src = article.authorPhoto;
+  headline.textContent = article.headline;
+  name.textContent = article.authorName;
+
+  card.appendChild(headline);
+  card.appendChild(author);
+    author.appendChild(imgCont);
+      imgCont.appendChild(photo);
+    author.appendChild(name);
+
+  card.addEventListener('click', () => {
+    console.log(headline.textContent)
+  })
+  return card
 }
 
-const cardAppender = (selector) => {
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -28,6 +56,18 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+
+const cardAppender = (selector) => {
+  const parent = document.querySelector(selector);
+axios.get('http://localhost:5000/api/articles')
+  .then( res => {
+    console.log(res.data.articles);
+    res.data.articles.bootstrap.forEach(item => parent.appendChild(Card(item)));
+    res.data.articles.javascript.forEach(item => parent.appendChild(Card(item)));
+    res.data.articles.jquery.forEach(item => parent.appendChild(Card(item)));
+    res.data.articles.node.forEach(item => parent.appendChild(Card(item)));
+    res.data.articles.technology.forEach(item => parent.appendChild(Card(item)));
+  })
 }
 
 export { Card, cardAppender }
