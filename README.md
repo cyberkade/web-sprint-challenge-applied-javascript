@@ -65,7 +65,16 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+    - The DOM is an interface for HTML documents, which makes it possible to alter HTML document's structure, style, and content with another language, like JavaScript.
+    
 2. What is an event?
+    - An event is something that the user fires off by manipulating/interacting with the webpage. Listening for event's makes it possible to create an interactive UX.
+
 3. What is an event listener?
+    - Listening for event's makes it possible to create an interactive UX. All code inside of an event listener will go off if the event listened for happens on that element.
+    
 4. Why would we convert a NodeList into an Array?
+    - We would do this to gain access to advanced array methods such as map, reduce, etc.
+
 5. What is a component?
+    -A component makes scalability a lot easier to deal with. Components are independent, reusable chunks of code.

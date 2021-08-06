@@ -1,4 +1,6 @@
- // TASK 3
+import axios from "axios";
+
+  // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
   // As an example, if the topics passed are ['javascript', 'bootstrap', 'technology']
@@ -12,8 +14,6 @@
   //   <div class="tab">technology</div>
   // </div>
   //
-
-import axios from "axios";
 
   // TASK 4
   // ---------------------
